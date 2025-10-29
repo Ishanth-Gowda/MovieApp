@@ -10,7 +10,7 @@ import "./App.css";
 export default function App() {
   return (
     <WatchlistProvider>
-      <BrowserRouter>
+      <BrowserRouter basename="/MovieApp">
         <div className="app-container">
           <Navbar />
           <main className="main-content">
