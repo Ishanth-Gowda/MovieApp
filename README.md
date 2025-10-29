@@ -1,15 +1,15 @@
-# 🎬 The Movie List
+🎬 The Movie List
 
-A simple React-based movie browsing app where you can search for movies, view details, and manage your watchlist.
-
----
-
-## 🌐 Live Demo  
-👉 [The Movie List - View Here: https://ishanth-gowda.github.io/MovieApp/
+A simple React-based movie browsing app where you can search for movies, view details, manage/add and remove from your watchlist.
 
 ---
 
-## 🚀 Features
+# Live Demo:
+The Movie List - View Here: https://ishanth-gowda.github.io/MovieApp/
+
+---
+
+# Features
 - Browse random popular movies on the homepage  
 - Search for any movie using the OMDb API  
 - View detailed movie info  
@@ -19,15 +19,10 @@ A simple React-based movie browsing app where you can search for movies, view de
 
 ---
 
-## 🛠️ Built With
+# Built With:
 - React  
-- JavaScript (ES6+)  
+- JavaScript
 - CSS  
 - OMDb API  
 
 ---
-
-## 🧑‍💻 Setup Instructions
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/Ishanth-Gowda/MovieApp.git
