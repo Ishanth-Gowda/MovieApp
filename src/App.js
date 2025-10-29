@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { WatchlistProvider } from "./context/WatchlistContext";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import MovieDetails from "./pages/MovieDetails";
+import Watchlist from "./pages/Watchlist";
+import "./App.css";
 
-function App() {
+export default function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <WatchlistProvider>
+      <BrowserRouter>
+        <div className="app-container">
+          <Navbar />
+          <main className="main-content">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/movie/:id" element={<MovieDetails />} />
+              <Route path="/watchlist" element={<Watchlist />} />
+            </Routes>
+          </main>
+          <footer className="footer">© 2025 All rights reserved® | Powered by OMDb API</footer>
+        </div>
+      </BrowserRouter>
+    </WatchlistProvider>
   );
 }
-
-export default App;
