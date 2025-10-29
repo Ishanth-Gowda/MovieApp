@@ -1,4 +1,4 @@
-🎬 The Movie List
+# 🎬 The Movie List
 
 A simple React-based movie browsing app where you can search for movies, view details, manage/add and remove from your watchlist.
 
