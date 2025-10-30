@@ -61,3 +61,66 @@
     background: #ff6b6b;
     color: #fff;
 }
+
+@media (max-width: 600px) {
+  .details-page {
+    padding: 14px;
+  }
+
+  .details-wrap {
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .details-poster {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+
+  .details-info h2 {
+    font-size: 1.25rem;
+  }
+
+  .details-info p {
+    font-size: 0.95rem;
+  }
+
+  .back-btn {
+    padding: 7px 10px;
+    font-size: 0.95rem;
+  }
+
+  .watchlist-btn {
+    padding: 9px 12px;
+    font-size: 0.95rem;
+  }
+}
+
+/* iPad and small tablets */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .details-page {
+    padding: 18px;
+  }
+
+  .details-wrap {
+    gap: 18px;
+  }
+
+  .details-poster {
+    width: 320px;
+  }
+
+  .details-info h2 {
+    font-size: 1.45rem;
+  }
+
+  .details-info p {
+    font-size: 0.98rem;
+  }
+
+  .watchlist-btn {
+    padding: 10px 12px;
+    font-size: 1rem;
+  }
+}

@@ -35,3 +35,40 @@
 .searchbar button:hover {
     background: var(--accent-dark);
 }
+
+@media (max-width: 500px) {
+  .searchbar {
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 0.5rem;
+    gap: 0.6rem;
+    width: 90%;
+  }
+
+  .searchbar input {
+    font-size: 0.95rem;
+    padding: 0.6rem 0.9rem;
+  }
+
+  .searchbar button {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.6rem;
+  }
+}
+
+/* 💻 iPad (portrait & landscape) */
+@media (min-width: 601px) and (max-width: 1024px) {
+  .searchbar {
+    max-width: 500px;
+    margin-top: 0.5rem;
+  }
+
+  .searchbar input {
+    font-size: 1rem;
+  }
+
+  .searchbar button {
+    font-size: 1rem;
+  }
+}
