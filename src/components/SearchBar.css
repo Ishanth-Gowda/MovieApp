@@ -36,10 +36,10 @@
     background: var(--accent-dark);
 }
 
-@media (max-width: 500px) {
+@media (max-width: 350px) {
   .searchbar {
     flex-direction: column;
-    align-items: stretch;
+    align-items:center;
     margin-top: 0.5rem;
     gap: 0.6rem;
     width: 90%;
