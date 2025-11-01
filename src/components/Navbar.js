@@ -19,6 +19,7 @@ export default function Navbar() {
                 </a>
                 <nav className="nav-links">
                     <Link to="/" onClick={handleHomeClick}>Home</Link>
+                    <Link to="/genres">Genres</Link>
                     <Link to="/watchlist">Watchlist</Link>
                 </nav>
             </div>

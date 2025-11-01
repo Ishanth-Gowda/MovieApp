@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, useLocation } from "react-router-dom";
 import { useWatchlist } from "../context/WatchlistContext";
 import "./MovieDetails.css";
 
@@ -9,13 +9,17 @@ export default function MovieDetails() {
     const { id } = useParams();
     const [movie, setMovie] = useState(null);
     const navigate = useNavigate();
+    const location = useLocation();
+    const fromGenre = location.state?.fromGenre || null;
     const { addToWatchlist, removeFromWatchlist, hasInWatchlist } = useWatchlist();
 
     useEffect(() => {
         let mounted = true;
         const fetchMovie = async () => {
             try {
-                const res = await fetch(`https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`);
+                const res = await fetch(
+                    `https://www.omdbapi.com/?apikey=${API_KEY}&i=${id}&plot=full`
+                );
                 const data = await res.json();
                 if (mounted) setMovie(data.Response === "True" ? data : null);
             } catch (e) {
@@ -23,7 +27,9 @@ export default function MovieDetails() {
             }
         };
         fetchMovie();
-        return () => { mounted = false; };
+        return () => {
+            mounted = false;
+        };
     }, [id]);
 
     if (!movie) return <p className="loading">Loading...</p>;
@@ -32,16 +38,30 @@ export default function MovieDetails() {
 
     return (
         <div className="details-page">
-            <button className="back-btn" onClick={() => navigate(-1)}>← Go Back</button>
+            <button
+                className="back-btn"
+                onClick={() => {
+                    if (fromGenre) navigate("/genres", { state: { genre: fromGenre } });
+                    else navigate(-1);
+                }}
+            >
+                ← Go Back
+            </button>
 
             <div className="details-wrap">
                 <img
                     className="details-poster"
-                    src={movie.Poster && movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/400x600?text=No+Image"}
+                    src={
+                        movie.Poster && movie.Poster !== "N/A"
+                            ? movie.Poster
+                            : "https://via.placeholder.com/400x600?text=No+Image"
+                    }
                     alt={movie.Title}
                 />
                 <div className="details-info">
-                    <h2>{movie.Title} ({movie.Year})</h2>
+                    <h2>
+                        {movie.Title} ({movie.Year})
+                    </h2>
                     <p><strong>Genre:</strong> {movie.Genre}</p>
                     <p><strong>Runtime:</strong> {movie.Runtime}</p>
                     <p><strong>Director:</strong> {movie.Director}</p>
@@ -51,9 +71,16 @@ export default function MovieDetails() {
 
                     <div className="details-actions">
                         {!inList ? (
-                            <button className="watchlist-btn" onClick={() => addToWatchlist(movie)}>+ Add to Watchlist</button>
+                            <button className="watchlist-btn" onClick={() => addToWatchlist(movie)}>
+                                + Add to Watchlist
+                            </button>
                         ) : (
-                            <button className="watchlist-btn remove" onClick={() => removeFromWatchlist(movie.imdbID)}>Remove from Watchlist</button>
+                            <button
+                                className="watchlist-btn remove"
+                                onClick={() => removeFromWatchlist(movie.imdbID)}
+                            >
+                                Remove from Watchlist
+                            </button>
                         )}
                     </div>
                 </div>

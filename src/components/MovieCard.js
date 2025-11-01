@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 import { useWatchlist } from "../context/WatchlistContext";
 import "./MovieCard.css";
 
-export default function MovieCard({ movie }) {
+export default function MovieCard({ movie, fromGenre }) {
     const { addToWatchlist, removeFromWatchlist, hasInWatchlist } = useWatchlist();
     const inList = hasInWatchlist(movie.imdbID);
 
     return (
         <div className="movie-card">
-            <Link to={`/movie/${movie.imdbID}`} className="movie-link">
+            <Link
+                to={`/movie/${movie.imdbID}`}
+                className="movie-link"
+                state={fromGenre ? { fromGenre } : null}
+            >
                 <img
-                    src={movie.Poster && movie.Poster !== "N/A" ? movie.Poster : "https://via.placeholder.com/300x450?text=No+Image"}
+                    src={
+                        movie.Poster && movie.Poster !== "N/A"
+                            ? movie.Poster
+                            : "https://via.placeholder.com/300x450?text=No+Image"
+                    }
                     alt={movie.Title}
                     className="card-poster"
                 />
@@ -27,7 +35,10 @@ export default function MovieCard({ movie }) {
                         + Add to Watchlist
                     </button>
                 ) : (
-                    <button className="watchlist-btn remove" onClick={() => removeFromWatchlist(movie.imdbID)}>
+                    <button
+                        className="watchlist-btn remove"
+                        onClick={() => removeFromWatchlist(movie.imdbID)}
+                    >
                         Remove
                     </button>
                 )}

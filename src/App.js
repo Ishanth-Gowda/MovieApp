@@ -5,6 +5,7 @@ import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
 import MovieDetails from "./pages/MovieDetails";
 import Watchlist from "./pages/Watchlist";
+import Genres from "./pages/Genres"; // ✅ New import
 import "./App.css";
 
 export default function App() {
@@ -17,10 +18,13 @@ export default function App() {
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/movie/:id" element={<MovieDetails />} />
+              <Route path="/genres" element={<Genres />} /> {/* ✅ New route */}
               <Route path="/watchlist" element={<Watchlist />} />
             </Routes>
           </main>
-          <footer className="footer">© 2025 All rights reserved® | Powered by OMDb API</footer>
+          <footer className="footer">
+            © 2025 All rights reserved® | Powered by OMDb API
+          </footer>
         </div>
       </BrowserRouter>
     </WatchlistProvider>

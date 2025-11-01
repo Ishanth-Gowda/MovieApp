@@ -1,0 +1,147 @@
+.genres-page {
+    padding: 2rem 1rem;
+    color: #fff;
+    min-height: 80vh;
+}
+
+/* Back button (same as MovieDetails) */
+.back-btn {
+    background: none;
+    border: none;
+    color: var(--accent);
+    font-weight: 600;
+    font-size: 1.1rem;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    transition: 0.2s;
+}
+
+.back-btn:hover {
+    background-color: #ffd000;
+    transform: scale(1.05);
+}
+
+/* Genre cards layout (same as movie cards) */
+.genres-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.genre-card {
+    background: #111;
+    padding: 1.2rem;
+    border-radius: 12px;
+    text-align: center;
+    border: 1px solid #222;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.genre-card:hover {
+    transform: scale(1.03);
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(255, 204, 0, 0.4);
+}
+
+.genre-card h3 {
+    font-size: 1.2rem;
+    color: var(--accent);
+    margin: 0;
+}
+
+/* Movie results grid (same as Home.css) */
+.genre-movies-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+/* Loading text */
+.loading {
+    text-align: center;
+    font-size: 1.1rem;
+    color: #ccc;
+    margin-top: 2rem;
+}
+
+/* Scroll to Top Button */
+.scroll-to-top {
+    position: fixed;
+    bottom: 30px;
+    right: 25px;
+    background-color: var(--accent);
+    color: #000;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    font-size: 1.3rem;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+    transition: 0.3s ease;
+    z-index: 1000;
+}
+
+.scroll-to-top:hover {
+    transform: scale(1.1);
+    background-color: #ffd000;
+}
+
+/* Genre title styling */
+.genre-title {
+    text-align: center;
+    color: var(--accent);
+    font-family: "Pirata One", cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+/* 🔹 Mobile (iPhone 12–16 Pro) */
+@media (max-width: 400px) {
+    .genres-list {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .genre-card {
+        padding: 1rem;
+    }
+
+    .genre-title {
+    text-align: center;
+    color: var(--accent);
+    font-family: "Pirata One", cursive;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+    .genre-card h3 {
+        font-size: 1rem;
+    }
+
+    .genre-movies-grid {
+        width: 200px;
+        background: var(--card-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+        margin: 8px;
+        margin-left: 3rem;
+    }
+}
+
+/* 💻 iPad (portrait & landscape) */
+@media (min-width: 768px) and (max-width: 1024px) {
+    .genres-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .genre-movies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}

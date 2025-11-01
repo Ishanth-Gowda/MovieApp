@@ -79,3 +79,16 @@
 .watchlist-btn.remove:hover {
     background: #ff4c4c;
 }
+
+@media (max-width: 400px) {
+    .movie-card {
+        width: 200px;
+        background: var(--card-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: transform 0.22s ease, box-shadow 0.22s ease;
+        margin: 8px;
+    }
+}

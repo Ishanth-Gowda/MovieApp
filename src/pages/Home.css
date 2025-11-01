@@ -37,37 +37,3 @@
     transform: scale(1.08);
     background: var(--accent-dark);
 }
-
-@media (max-width: 350px) {
-  .search-bar-container {
-    flex-direction: column;
-  }
-
-  .search-bar-container input {
-    width: 100%;
-    font-size: 1rem;
-  }
-
-  .search-bar-container button {
-    width: 100%;
-    font-size: 1rem;
-    padding: 0.8rem;
-  }
-
-  .movies-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-  }
-}
-
-@media (max-width: 400px) {
-  .movies-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0.8rem;
-  }
-
-  .search-bar-container input,
-  .search-bar-container button {
-    font-size: 0.9rem;
-  }
-}
