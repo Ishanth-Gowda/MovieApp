@@ -24,6 +24,6 @@ The Movie List - View Here: https://ishanth-gowda.github.io/MovieApp/
 
 # Built With
 	• React – Component-based UI library
-	•	JavaScript (ES6+) – Core logic and interactivity
-	•	CSS – Custom styling and responsive layout
-	•	OMDb API – Movie data and search results
+	• JavaScript (ES6+) – Core logic and interactivity
+	• CSS – Custom styling and responsive layout
+	• OMDb API – Movie data and search results
